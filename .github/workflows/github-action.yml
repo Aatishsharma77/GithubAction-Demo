@@ -2,21 +2,20 @@ name: Prod terraform workflow
 permissions: write-all
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
     paths:
-      - "terraform/production/eu-west-1/**"
+      - "**"
   pull_request:
     paths:
-      - "terraform/production/eu-west-1/**"  
+      - "**"  
   workflow_dispatch:
 jobs:
   production-terraform:
-    uses: Aatishsharma77/GithubAction-Demo/.github/workflows/terraform_workflow.yml@master
+    uses: Aatishsharma77/GithubAction-Demo/.github/workflows/terraform_workflow.yml@main
     with:
         provider:            aws
-        working_directory:  'terraform/production/eu-west-1/'
+        working_directory:  '**'
         aws_region:         eu-west-1
-        approvers:          omsharma07
         terraform_version:  1.6.4
         destroy:            false
         timeout:            2
