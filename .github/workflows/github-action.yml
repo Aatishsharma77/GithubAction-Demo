@@ -18,7 +18,7 @@ jobs:
         aws_region:         eu-west-1
         approvers:          Aatishsharma77
         terraform_version:  1.6.4
-        destroy:            false
+        destroy:            true
         timeout:            2
     secrets:
         BUILD_ROLE: ${{ secrets.TEST }}
