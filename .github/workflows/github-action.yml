@@ -1,0 +1,24 @@
+name: Prod terraform workflow
+permissions: write-all
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - "terraform/production/eu-west-1/**"
+  pull_request:
+    paths:
+      - "terraform/production/eu-west-1/**"  
+  workflow_dispatch:
+jobs:
+  production-terraform:
+    uses: clouddrove/github-shared-workflows/.github/workflows/terraform_workflow.yml@master
+    with:
+        provider:            aws
+        working_directory:  'terraform/production/eu-west-1/'
+        aws_region:         eu-west-1
+        approvers:          omsharma07
+        terraform_version:  1.6.4
+        destroy:            false
+        timeout:            2
+    secrets:
+        BUILD_ROLE: ${{ secrets.AWS_OIDC_ROLE }}
