@@ -1,8 +1,17 @@
-name: hello-world
-on: push
+name: input username
+on: 
+  workflow_call:
+    inputs:
+      username:
+        description: 'A username passed from the caller workflow'
+        default: 'john-doe'
+        required: false
+        type: string
+
 jobs:
-  my-job:
+  print-username:
     runs-on: ubuntu-latest
+
     steps:
-      - name: my-step
-        run: echo "Hello World!"
+      - name: Print the input name to STDOUT
+        run: echo The username is ${{ inputs.username }}
