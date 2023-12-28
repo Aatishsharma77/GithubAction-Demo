@@ -20,4 +20,4 @@ jobs:
         destroy:            false
         timeout:            2
     secrets:
-        BUILD_ROLE: ${{ secrets.AWS_OIDC_ROLE }}
+        BUILD_ROLE: ${{ secrets.TEST }}
