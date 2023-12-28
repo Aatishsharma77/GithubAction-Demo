@@ -1,4 +1,4 @@
-name: Prod terraform workflow
+name: Test
 permissions: write-all
 on:
   push:
