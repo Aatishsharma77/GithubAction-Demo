@@ -4,17 +4,17 @@ on:
   push:
     branches: [ main ]
     paths:
-      - "terraform/*"
+      - "terraform/main.tf"
   pull_request:
     paths:
-      - "terraform/*"  
+      - "terraform/main.tf"  
   workflow_dispatch:
 jobs:
   production-terraform:
     uses: Aatishsharma77/GithubAction-Demo/.github/workflows/terraform_workflow.yml@main
     with:
         provider:            aws
-        working_directory:  "terraform/*"
+        working_directory:  "terraform/main.tf"
         aws_region:         eu-west-1
         terraform_version:  1.6.4
         destroy:            false
