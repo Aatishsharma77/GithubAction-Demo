@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 jobs:
   production-terraform:
-    uses: clouddrove/github-shared-workflows/.github/workflows/terraform_workflow.yml@master
+    uses: Aatishsharma77/GithubAction-Demo/.github/workflows/terraform_workflow.yml@master
     with:
         provider:            aws
         working_directory:  'terraform/production/eu-west-1/'
